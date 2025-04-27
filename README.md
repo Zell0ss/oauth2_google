@@ -20,9 +20,9 @@ It consist on this steps.
 3. The provider asks the user to consent to the client acting on their behalf:
     - Usually this includes limited access, and it’s made clear to the user what the client is asking for.
     - This is like when you have to approve an app on your phone to have access to location or contacts.
-4. The provider sends the client a unique authorization code.
-5. The client sends the authorization code back to the provider’s token URL.
-6. The provider sends the client tokens to use with other provider URLs on behalf of the user.
+4. The provider sends the client a unique authorization code on the callback URL.
+5. The client posts the authorization code back to the provider’s token URL.
+6. The provider answers the client request with tokens to use with other provider URLs on behalf of the user.
 
 The important OIDC concepts for our client are
 - the provider configuration.
@@ -50,11 +50,18 @@ There you can select or create a Project: You need to associate your credentials
     - Give it a name (for your reference).
     - Optional: You can add restricted uris for google to accept your application to call from. As this is a local development you can add https://127.0.0.1:5000 or leave it blank
     - Crucially: Add Authorized redirect URIs. This is the URL within your application where Google will redirect the user back to after they authenticate and grant consent (Step 4 in Handshake sends the auth code to this URI). This URI must exactly match the one your Flask application will handle. For local development, this is often something like http://127.0.0.1:5000/callback or http://localhost:5000/callback. In this case left it to https://127.0.0.1:5000/login/callback
-6. Create: Click the "Create" button.
+6. Click the "Create" button.
 7. Get Credentials: A pop-up will display your Client ID and Client Secret. Copy these immediately and store them securely. *Do not commit your Client Secret to version control.*
 
 These generated Client ID and Client Secret are the "client credentials"
 
 ## Connect FLASK API to GOOGLE OAUTH2
+We will be using OAuthLib to manage the handsake. It has wrappers to all major frameworks but we will keep it agnostic. That and the rest of the libraries are in the pipfile
+
+- db.py: it will manage a local database to manage the logins
+- schema.sql: this will create the sole table
+- 
+
+
 
 

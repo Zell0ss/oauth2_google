@@ -6,11 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-requests = "~=2.21.0"
-oauthlib = "~=3.0.1"
-Flask = "~=1.0.2"
-pyopenssl = "~=19.0.0"
-flask-login = "~=0.4.1"
+requests="*"
+oauthlib="*"
+Flask="*"
+pyopenssl="*" 
+flask-login="*"
 
 [requires]
-python_version = "3"
+python_version = "3.11"
