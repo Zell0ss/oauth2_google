@@ -172,3 +172,4 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+Client_data.secret
